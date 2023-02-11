@@ -29,6 +29,8 @@ class QRCode:
 
         else:
             path = f"{os.getcwd()}\static\qr_imgs\\"
+            if not os.path.exists(path):
+                os.mkdir(path)
             img = qrcode.make(link)
             type(img)  # qrcode.image.pil.PilImage
             img.save(path + f"{id}.png")
