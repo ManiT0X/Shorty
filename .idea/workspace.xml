@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f8f124f8-6ff5-4deb-921d-8de273efd579" name="Default Changelist" comment="# fixed login page (show msgs for bad credentials)&#10;# fixed delete route&#10;# added new chart for visitors data&#10;# added sorting options for chat">
+    <list default="true" id="f8f124f8-6ff5-4deb-921d-8de273efd579" name="Default Changelist" comment="# fixed login page (show msgs for bad credentials)&#10;# fixed delete route&#10;# added new chart for visitors data&#10;# added sorting options for chat (ex: sort by country)">
+      <change afterPath="$PROJECT_DIR$/fake_visitors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/instance/database.db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/qr_imgs/ManiT0X/ieikc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/qr_imgs/dwuta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/qr_imgs/olvqc.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blueprints/user/login.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/user/login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blueprints/user/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/user/profile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/scripts.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,10 +62,12 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="ManiT0X &lt;1716553298@proton.me&gt;" />
         <option value="Mani Mohamed &lt;120915619+manit0x@users.noreply.github.com&gt;" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -221,23 +220,30 @@
       <option name="presentableId" value="Default" />
       <updated>1676072226163</updated>
     </task>
+    <task id="LOCAL-00001" summary="# fixed login page (show msgs for bad credentials)&#10;# fixed delete route&#10;# added new chart for visitors data&#10;# added sorting options for chat (ex: sort by country)">
+      <created>1676143387776</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676143387776</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24960254" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="2" sideWeight="0.5007949" side_tool="true" visible="true" weight="0.32897863" />
       <window_info anchor="bottom" id="Python Console" order="3" />
       <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.32897863" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49920508" weight="0.32897863" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -249,6 +255,11 @@
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="# fixed login page (show msgs for bad credentials)&#10;# fixed delete route&#10;# added new chart for visitors data&#10;# added sorting options for chat (ex: sort by country)" />
+    <option name="LAST_COMMIT_MESSAGE" value="# fixed login page (show msgs for bad credentials)&#10;# fixed delete route&#10;# added new chart for visitors data&#10;# added sorting options for chat (ex: sort by country)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/forms.py">
