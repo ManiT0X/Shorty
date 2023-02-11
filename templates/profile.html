@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block title %} {{current_user.username}}'s profile {% endblock %}
+{% block contents %}
+
+
+
+<div style="height:5%"></div>
+
+<div class="container">
+
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    <div class="input-group mb-5">
+        <input id="profile_url_input" type="text" class="form-control profile_input" name="full_link" placeholder="www.myblog.com/my-cool-post"
+               aria-describedby="button-addon2">
+        <input id="profile_link_description" type="text" name="link_description" placeholder="My link description, ex: My blog's cool post" class="form-control">
+        <button id="profile_short_button" class="btn btn-outline-secondary" type="submit">short it</button>
+    </div>
+
+
+    <div class="container">
+        <br>
+        <div class="row">
+            <div class="col">
+                <div class="table-wrapper-scroll-y my-custom-scrollbar" style="border: solid 1px;">
+                    <table class="table table-sm table-bordered mb-0 table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Short Link</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in data %}
+                        <tr class="linkinfo" aria-label="{{i.short_link_id}}" id="row{{ i.id }}">
+                            <th scope="row" id="itemid">{{i.link_description}}</th>
+                            <td><p>{{i.short_link}}</p></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <br>
+                <br>
+
+            </div>
+            <div class="col" style="border: solid 1px; height: 300px;">
+              <canvas id="visitChart"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div>
+                    <form id="updatinglink">
+                    <table class="table table-bordered table-sm mb-0">
+                        <thead>
+                        <tr>
+                            <th scope="col">link and Description</th>
+                            <th scope="col">Visits and Date</th>
+                            <th scope="col">Update link</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <!--<th><div id="shortlinkid">short link</div></th>-->
+                            <th><input class="form-control" type="text" id="fullLink" name="new_link" value="full link here"></th>
+                            <td class="text-center"><div id="visitsid">0</div></td>
+                            <td class="text-center"><button type="button" id="updateLinkButton" customid="" class="btn btn-outline-secondary">Update</button></td>
+                        </tr>
+                        <tr>
+                            <!--<th><div id="shortlinkid">short link</div></th>-->
+                            <th><input class="form-control" type="text" id="linkDescription" name="new_link" value="description here"></th>
+                            <td class="text-center"><div id="linkDate">year-mo-dd</div></td>
+                            <td class="text-center"><button type="button" id="updateDescriptionButton" customid="" class="btn btn-outline-secondary">Update</button></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"><div class="d-grid gap-2"><button id="DeleteLink" type="button" customid="" class="btn btn-outline-danger">delete</button></div></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                      </form>
+                    <br>
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                      When updating the link, your short link will remain the same, the QR code image is also updated dynamically without altering the
+                        original direct link .
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+                                <div style="border: solid 1px;">
+                    <table class="table table-bordered mb-0">
+                        <thead>
+                        <tr>
+                            <th scope="col">QR</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th><div class="text-center">
+                                <img id="qrid" class="img-fluid rounded-3 my-4"
+                                     src="https://dummyimage.com/300x300/343a40/6c757d"
+                                     alt="QR_IMAGE"/><br>
+                                 <a id="qr_download_button" hidden="hidden" class="btn btn-outline-dark btn-md px-4"
+                                    href="">Download QR-Image</a>
+                            </div>
+                            </th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+
+            </div>
+            <div id="dataChartCol" hidden="hidden" class="col">
+                <select id="dataSorting" linkid="" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                      <option id="byOs" value="0" selected>Sort by os</option>
+                      <option id="byCountries" value="1">Sort by Countries</option>
+                      <option id="byDevices" value="2">Sort byDevices</option>
+                      <option id="byBrowser" value="3">Sort by Browser</option>
+                </select>
+              <canvas hidden="hidden" style="border: solid 1px;" id="dataChart">
+
+              </canvas>
+            </div>
+        </div>
+        </div>
+
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.2.0/chart.umd.js"
+        integrity="sha512-B51MzT4ksAo6Y0TcUpmvZnchoPYfIcHadIaFqV5OR5JAh6dneYAeYT1xIlaNHhhFAALd5FLDTWNt/fkxhwE/oQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel=”stylesheet” integrity=”sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% endblock %}

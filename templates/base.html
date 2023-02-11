@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{% block title %}{%endblock %}</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='assets/favicon.ico')}}"/>
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    {% block css %} <link href="{{url_for('static', filename='css/vendor/styles.css')}}" rel="stylesheet"/> {% endblock %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <!-- Navigation-->
+
+    {% block nav %}
+    {% if not current_user.is_authenticated %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" href="{{url_for('home.home_page')}}">Short your links</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('home.home_page')}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('about.about_page')}}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('login.login_page')}}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('register.register_page')}}">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('faq.faq_page')}}">FAQ</a></li>
+                    <!--<li class="nav-item dropdown">-->
+                        <!--<a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button"-->
+                           <!--data-bs-toggle="dropdown" aria-expanded="false">Blog</a>-->
+                        <!--<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">-->
+                            <!--<li><a class="dropdown-item" href="blog-home.html">Blog Home</a></li>-->
+                            <!--<li><a class="dropdown-item" href="blog-post.html">Blog Post</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li class="nav-item dropdown">-->
+                        <!--<a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button"-->
+                           <!--data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>-->
+                        <!--<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">-->
+                            <!--<li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>-->
+                            <!--<li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% else %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" href="{{url_for('home.home_page')}}">Short your links</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="{{url_for('home.home_page')}}">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">{{current_user.username}}</a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                            <li><a class="dropdown-item" href="{{url_for('profile.profile_page')}}">Profile</a></li>
+                            <li><a class="dropdown-item" href="">Settings</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('login.logout')}}">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endif %}
+    {% endblock %}
+
+{% block contents %}
+{% endblock %}
+
+
+
+
+</main>
+{% block footer %}
+{% if not current_user.is_authenticated %}
+<footer class="bg-dark py-4 mt-auto">
+    <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+            <div class="col-auto">
+                <div class="small m-0 text-white">Copyright &copy; Your Website 2023</div>
+            </div>
+            <div class="col-auto">
+                <a class="link-light small" href="#!">Privacy</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="#!">Terms</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="#!">Contact</a>
+            </div>
+        </div>
+    </div>
+</footer>
+{% else %}
+<footer class="bg-dark py-4 mt-auto">
+    <div class="container px-5">
+        <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+            <div class="col-auto">
+                <div class="small m-0 text-white">Copyright &copy; Your Website 2023</div>
+            </div>
+            <div class="col-auto">
+                <a class="link-light small" href="#!">Privacy</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="#!">Terms</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="{{url_for('about.about_page')}}">About</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="{{url_for('faq.faq_page')}}">FAQ</a>
+                <span class="text-white mx-1">&middot;</span>
+                <a class="link-light small" href="{{url_for('contact.contact_page')}}">Contact</a>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endif %}
+{% endblock %}
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
+</body>
+</html>
